@@ -16,6 +16,8 @@ GameScene::~GameScene() {
 	//プレイヤー
 	delete player_;
 
+	//ビーム
+	delete beam_;
 }
 
 void GameScene::Initialize() {
@@ -44,6 +46,12 @@ void GameScene::Initialize() {
 
 	player_->Initialize(viewProjection_);
 
+
+
+	//ビーム
+	beam_ = new Beam();
+	beam_->Initialize(viewProjection_, player_);
+
 }
 
 void GameScene::Update() {
@@ -54,6 +62,8 @@ void GameScene::Update() {
 
 
 	player_->Update();
+
+	beam_->Update();
 
 }
 
@@ -95,6 +105,9 @@ void GameScene::Draw() {
 
 	//プレイヤー
 	player_->Draw3D();
+
+	//ビーム
+	beam_->Draw3D();
 
 
 

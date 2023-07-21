@@ -29,6 +29,9 @@ class Player {
 		//2D背景描画
 	    void Draw3D();
 
+			// X座標の獲得
+	    float GetX() { return worldTransformPlayer_.translation_.x; }
+
 	private:
 		//ビュープロダクション（共通）
 	    ViewProjection viewProjection_;
@@ -42,5 +45,8 @@ class Player {
 
 		//インプットクラス
 	    Input* input_ = nullptr;
+
+
+	
 
 };
