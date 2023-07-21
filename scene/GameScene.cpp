@@ -2,6 +2,7 @@
 #include "TextureManager.h"
 #include <cassert>
 #include "Stage.h"
+#include "Enemy.h"
 
 GameScene::GameScene() { }
 
@@ -18,6 +19,10 @@ GameScene::~GameScene() {
 
 	//ビーム
 	delete beam_;
+
+	//敵
+	delete enemy_;
+	
 }
 
 void GameScene::Initialize() {
@@ -52,6 +57,11 @@ void GameScene::Initialize() {
 	beam_ = new Beam();
 	beam_->Initialize(viewProjection_, player_);
 
+	//敵
+	enemy_ = new Enemy();
+	enemy_->Initialize(viewProjection_);
+	
+
 }
 
 void GameScene::Update() {
@@ -64,6 +74,8 @@ void GameScene::Update() {
 	player_->Update();
 
 	beam_->Update();
+
+	enemy_->Update();
 
 }
 
@@ -108,6 +120,10 @@ void GameScene::Draw() {
 
 	//ビーム
 	beam_->Draw3D();
+
+	//敵
+	enemy_->Draw3D();
+	
 
 
 

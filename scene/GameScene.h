@@ -11,6 +11,7 @@
 #include "Stage.h"
 #include "Player.h"
 #include "Beam.h"
+#include "Enemy.h"
 
 /// <summary>
 /// ゲームシーン
@@ -66,4 +67,7 @@ private: // メンバ変数
 
 		//ビーム
 	    Beam* beam_ = nullptr;
+
+		//敵
+	    Enemy* enemy_ = nullptr;
 };
